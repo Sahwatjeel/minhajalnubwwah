@@ -1,8 +1,11 @@
 // ============================================
-// استيراد الإعدادات والخدمات
+// استيراد الإعدادات
 // ============================================
 import firebaseConfig from "./firebase.js";
 
+// ============================================
+// استيراد Firebase (روابط CDN كاملة)
+// ============================================
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,

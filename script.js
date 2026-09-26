@@ -56,7 +56,6 @@ const postsList = document.getElementById("postsList");
 const themeToggle = document.getElementById("themeToggle");
 const adminPanelBtn = document.getElementById("adminPanelBtn");
 
-// Sidebar
 const sidebar = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
 const menuToggle = document.getElementById("menuToggle");
@@ -65,12 +64,10 @@ const sidebarUserEmail = document.getElementById("sidebarUserEmail");
 const currentCategoryIcon = document.getElementById("currentCategoryIcon");
 const currentCategoryName = document.getElementById("currentCategoryName");
 
-// Role selector
 const roleSelectorWrapper = document.getElementById("roleSelectorWrapper");
 const signupRole = document.getElementById("signupRole");
 const roleHint = document.getElementById("roleHint");
 
-// Modals
 const editModal = document.getElementById("editModal");
 const editPostContent = document.getElementById("editPostContent");
 const editPostCategory = document.getElementById("editPostCategory");
@@ -92,9 +89,7 @@ function escapeHtml(str) {
   return div.innerHTML;
 }
 
-function isAdmin() {
-  return currentUserData?.role === "admin";
-}
+function isAdmin() { return currentUserData?.role === "admin"; }
 
 function translateError(code) {
   const map = {
@@ -103,19 +98,18 @@ function translateError(code) {
     "auth/wrong-password": "كلمة المرور غير صحيحة",
     "auth/invalid-credential": "بيانات الدخول غير صحيحة",
     "auth/email-already-in-use": "البريد الإلكتروني مستخدم مسبقاً",
-    "auth/weak-password": "كلمة المرور ضعيفة (6 أحرف على الأقل)"
+    "auth/weak-password": "كلمة المرور ضعيفة (6 أحرف على الأقل)",
+    "permission-denied": "ليس لديك صلاحية (راجع قواعد Firestore)",
+    "unavailable": "تعذّر الاتصال بالخادم، تحقق من الإنترنت"
   };
   return map[code] || "حدث خطأ، حاول مرة أخرى";
 }
 
-// ============================================
-// حركة عنوان الموقع
-// ============================================
 function playTitleAnimation(selector) {
   const el = document.querySelector(selector);
   if (!el) return;
   el.classList.remove("animate-in");
-  void el.offsetWidth; // إعادة حساب لإعادة تشغيل الحركة
+  void el.offsetWidth;
   el.classList.add("animate-in");
 }
 
@@ -150,6 +144,7 @@ document.querySelectorAll(".tab").forEach(tab => {
 // ============================================
 async function loadSignupAvailability() {
   try {
+    console.log("🔍 التحقق من توفّر مقعد مشرف...");
     const settingsRef = doc(db, "settings", "config");
     const snap = await getDoc(settingsRef);
 
@@ -159,6 +154,9 @@ async function loadSignupAvailability() {
     if (snap.exists()) {
       maxAdmins = snap.data().maxAdmins ?? 1;
       currentAdminCount = snap.data().currentAdminCount ?? 0;
+      console.log("📊 الإعدادات:", { maxAdmins, currentAdminCount });
+    } else {
+      console.log("ℹ️ لا توجد إعدادات بعد، الافتراضي: 1 مشرف");
     }
 
     const canSignupAsAdmin = currentAdminCount < maxAdmins;
@@ -167,44 +165,64 @@ async function loadSignupAvailability() {
     if (canSignupAsAdmin) {
       const remaining = maxAdmins - currentAdminCount;
       roleHint.textContent = `يوجد ${remaining} مقعد مشرف متاح`;
+      console.log("✅ القائمة ظاهرة - متاح:", remaining);
+    } else {
+      console.log("🚫 لا توجد مقاعد مشرف متاحة");
     }
   } catch (err) {
-    console.error("خطأ في تحميل الإعدادات:", err);
+    console.error("❌ خطأ في تحميل الإعدادات:", err);
     roleSelectorWrapper.classList.add("hidden");
   }
 }
 
 // ============================================
-// تسجيل الدخول وإنشاء الحساب
+// تسجيل الدخول
 // ============================================
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   loginError.textContent = "";
+  loginError.style.color = "#e53935";
+
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
+
+  console.log("🔐 محاولة تسجيل الدخول:", email);
+
   try {
     await signInWithEmailAndPassword(auth, email, password);
+    console.log("✅ تم تسجيل الدخول");
     loginForm.reset();
   } catch (err) {
-    loginError.textContent = translateError(err.code);
+    console.error("❌ خطأ في الدخول:", err.code, err.message);
+    loginError.textContent = translateError(err.code) + " (" + err.code + ")";
   }
 });
 
+// ============================================
+// إنشاء حساب جديد
+// ============================================
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   signupError.textContent = "";
+  signupError.style.color = "#e53935";
 
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
 
   const wrapperVisible = !roleSelectorWrapper.classList.contains("hidden");
-  pendingSignupRole = (wrapperVisible && signupRole) ? (signupRole.value || "user") : "user";
+  pendingSignupRole = (wrapperVisible && signupRole)
+    ? (signupRole.value || "user")
+    : "user";
+
+  console.log("📝 محاولة تسجيل حساب جديد:", email, "| الدور:", pendingSignupRole);
 
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+    console.log("✅ تم إنشاء حساب Auth بنجاح:", cred.user.uid);
     signupForm.reset();
   } catch (err) {
-    signupError.textContent = translateError(err.code);
+    console.error("❌ خطأ في إنشاء الحساب:", err.code, err.message);
+    signupError.textContent = translateError(err.code) + " (" + err.code + ")";
     pendingSignupRole = null;
   }
 });
@@ -219,18 +237,33 @@ onAuthStateChanged(auth, async (user) => {
   if (unsubscribeUserDoc) { unsubscribeUserDoc(); unsubscribeUserDoc = null; }
 
   if (user) {
+    console.log("✅ تم تسجيل الدخول:", user.email);
+
     currentUser = user;
     authPage.classList.add("hidden");
     mainPage.classList.remove("hidden");
 
-    await ensureUserDoc(user);
-    listenToUserDoc(user.uid);
-    listenToPosts();
+    try {
+      await ensureUserDoc(user);
+      console.log("✅ تم تجهيز وثيقة المستخدم");
 
-    // تشغيل حركة عنوان الهيدر
+      listenToUserDoc(user.uid);
+      listenToPosts();
+      console.log("✅ تم تحميل المراقبات");
+    } catch (err) {
+      console.error("❌ خطأ في تجهيز الحساب:", err);
+      alert(
+        "حدث خطأ في تجهيز حسابك:\n" +
+        "الكود: " + (err.code || "غير معروف") + "\n" +
+        "الرسالة: " + err.message + "\n\n" +
+        "افتح Console (F12) لمزيد من التفاصيل."
+      );
+    }
+
     setTimeout(() => playTitleAnimation(".site-title"), 100);
-
   } else {
+    console.log("🚪 تم تسجيل الخروج");
+
     currentUser = null;
     currentUserData = null;
     postsCache = {};
@@ -247,9 +280,7 @@ onAuthStateChanged(auth, async (user) => {
     sidebar.classList.remove("open");
     sidebarOverlay.classList.remove("active");
 
-    // إعادة تشغيل حركة عنوان صفحة الدخول
     setTimeout(() => playTitleAnimation(".site-title-auth"), 100);
-
     await loadSignupAvailability();
   }
 });
@@ -259,11 +290,16 @@ onAuthStateChanged(auth, async (user) => {
 // ============================================
 async function ensureUserDoc(user) {
   const userRef = doc(db, "users", user.uid);
+  console.log("🔍 التحقق من وجود وثيقة المستخدم...");
+
   const userSnap = await getDoc(userRef);
   if (userSnap.exists()) {
+    console.log("ℹ️ وثيقة المستخدم موجودة مسبقاً");
     pendingSignupRole = null;
     return;
   }
+
+  console.log("🆕 إنشاء وثيقة مستخدم جديدة...");
 
   const settingsRef = doc(db, "settings", "config");
   let settingsSnap = await getDoc(settingsRef);
@@ -273,10 +309,14 @@ async function ensureUserDoc(user) {
   if (settingsSnap.exists()) {
     maxAdmins = settingsSnap.data().maxAdmins ?? 1;
     currentAdminCount = settingsSnap.data().currentAdminCount ?? 0;
+    console.log("📊 الإعدادات الحالية:", { maxAdmins, currentAdminCount });
   } else {
+    console.log("🆕 لا توجد إعدادات، إنشاء إعدادات افتراضية...");
     try {
       await setDoc(settingsRef, { maxAdmins: 1, currentAdminCount: 0 });
+      console.log("✅ تم إنشاء الإعدادات");
     } catch (e) {
+      console.warn("⚠️ تعذّر إنشاء الإعدادات:", e);
       settingsSnap = await getDoc(settingsRef);
       if (settingsSnap.exists()) {
         maxAdmins = settingsSnap.data().maxAdmins ?? 1;
@@ -287,20 +327,25 @@ async function ensureUserDoc(user) {
 
   let chosenRole = pendingSignupRole || "user";
   if (chosenRole === "admin" && currentAdminCount >= maxAdmins) {
+    console.log("⚠️ تم تحويل الدور من مشرف إلى مستخدم (لا توجد مقاعد)");
     chosenRole = "user";
   }
+
+  console.log("👤 الدور النهائي:", chosenRole);
 
   await setDoc(userRef, {
     email: user.email,
     role: chosenRole,
     createdAt: serverTimestamp()
   });
+  console.log("✅ تم إنشاء وثيقة المستخدم");
 
   if (chosenRole === "admin") {
     try {
       await updateDoc(settingsRef, { currentAdminCount: currentAdminCount + 1 });
+      console.log("✅ تم تحديث عدّاد المشرفين إلى:", currentAdminCount + 1);
     } catch (e) {
-      console.warn("تعذّر تحديث عدّاد المشرفين:", e);
+      console.warn("⚠️ تعذّر تحديث عدّاد المشرفين:", e);
     }
   }
 
@@ -338,6 +383,8 @@ function listenToPosts() {
       postsCache[docSnap.id] = { id: docSnap.id, ...docSnap.data() };
     });
     renderFilteredPosts();
+  }, (err) => {
+    console.error("❌ خطأ في تحميل المنشورات:", err);
   });
 }
 
@@ -362,9 +409,7 @@ function renderFilteredPosts() {
     return;
   }
 
-  filtered.forEach(post => {
-    postsList.appendChild(buildPostElement(post, uid));
-  });
+  filtered.forEach(post => postsList.appendChild(buildPostElement(post, uid)));
 }
 
 function buildPostElement(post, currentUid) {
@@ -445,6 +490,8 @@ function listenToLikes(postId, postElement) {
       countSpan.textContent = count;
       btn.classList.toggle("liked", likedByMe);
     }
+  }, (err) => {
+    console.error("❌ خطأ في تحميل الإعجابات:", err);
   });
 }
 
@@ -506,6 +553,8 @@ function listenToComments(postId, postElement) {
 
       container.appendChild(commentEl);
     });
+  }, (err) => {
+    console.error("❌ خطأ في تحميل التعليقات:", err);
   });
 }
 
@@ -569,7 +618,6 @@ addPostBtn.addEventListener("click", async () => {
 function openEditModal(postId) {
   const post = postsCache[postId];
   if (!post) return;
-
   if (post.userId !== currentUser.uid) {
     return alert("يمكنك تعديل منشوراتك فقط");
   }

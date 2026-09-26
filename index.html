@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>منهاج النبوة</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+
+  <!-- ===== صفحة تسجيل الدخول ===== -->
+  <div id="authPage" class="auth-container">
+    <div class="auth-card">
+      <h1 class="site-title-auth animate-in">منهاج النبوة</h1>
+      <p class="subtitle">سجل دخولك أو أنشئ حساباً جديداً</p>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="login">تسجيل الدخول</button>
+        <button class="tab" data-tab="signup">حساب جديد</button>
+      </div>
+
+      <form id="loginForm" class="form">
+        <input type="email" id="loginEmail" placeholder="البريد الإلكتروني" required />
+        <input type="password" id="loginPassword" placeholder="كلمة المرور" required />
+        <button type="submit" class="btn-primary">دخول</button>
+        <p class="error" id="loginError"></p>
+      </form>
+
+      <form id="signupForm" class="form hidden">
+        <input type="email" id="signupEmail" placeholder="البريد الإلكتروني" required />
+        <input type="password" id="signupPassword" placeholder="كلمة المرور (6 أحرف على الأقل)" required />
+
+        <div id="roleSelectorWrapper" class="role-selector-wrapper hidden">
+          <label for="signupRole" class="role-label">نوع الحساب:</label>
+          <select id="signupRole" class="role-select">
+            <option value="user">👤 مستخدم</option>
+            <option value="admin">👑 مشرف</option>
+          </select>
+          <p class="role-hint" id="roleHint">يوجد مقعد مشرف متاح حالياً</p>
+        </div>
+
+        <button type="submit" class="btn-primary">إنشاء حساب</button>
+        <p class="error" id="signupError"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== الصفحة الرئيسية ===== -->
+  <div id="mainPage" class="main-wrapper hidden">
+
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <span class="sidebar-logo">﷽</span>
+        <h2 class="sidebar-title">الأقسام</h2>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="nav-item active" data-category="all">
+          <span class="nav-icon">📚</span>
+          <span class="nav-label">جميع المنشورات</span>
+        </button>
+        <button class="nav-item" data-category="quran">
+          <span class="nav-icon">📖</span>
+          <span class="nav-label">القرآن</span>
+        </button>
+        <button class="nav-item" data-category="sunnah">
+          <span class="nav-icon">🕌</span>
+          <span class="nav-label">السنة الشريفة</span>
+        </button>
+        <button class="nav-item" data-category="companions">
+          <span class="nav-icon">⭐</span>
+          <span class="nav-label">قصص الصحابة</span>
+        </button>
+        <button class="nav-item" data-category="taifa">
+          <span class="nav-icon">🤝</span>
+          <span class="nav-label">إخوان الطائفة المنصورة</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <span id="sidebarUserEmail" class="sidebar-user-email"></span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="header">
+        <button id="menuToggle" class="icon-btn menu-toggle" title="القائمة">☰</button>
+        <h1 class="site-title">منهاج النبوة</h1>
+        <div class="header-actions">
+          <button id="adminPanelBtn" class="icon-btn hidden" title="لوحة التحكم">⚙️</button>
+          <button id="themeToggle" class="icon-btn" title="الوضع الليلي">🌙</button>
+          <button id="logoutBtn" class="btn-secondary">خروج</button>
+        </div>
+      </header>
+
+      <div class="user-info">
+        <span>👤 <span id="userEmail"></span></span>
+        <span id="roleBadge" class="role-badge"></span>
+      </div>
+
+      <div class="category-banner">
+        <span id="currentCategoryIcon">📚</span>
+        <h2 id="currentCategoryName">جميع المنشورات</h2>
+      </div>
+
+      <div class="create-post">
+        <select id="postCategory" class="category-select">
+          <option value="quran">📖 القرآن</option>
+          <option value="sunnah">🕌 السنة الشريفة</option>
+          <option value="companions">⭐ قصص الصحابة</option>
+          <option value="taifa">🤝 إخوان الطائفة المنصورة</option>
+        </select>
+        <textarea id="postContent" placeholder="اكتب منشوراً جديداً..."></textarea>
+        <button id="addPostBtn" class="btn-primary">نشر</button>
+      </div>
+
+      <div id="postsList" class="posts-list"></div>
+    </main>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+  </div>
+
+  <!-- ===== تعديل المنشور ===== -->
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>✏️ تعديل المنشور</h2>
+        <button class="close-btn" data-close="editModal">✕</button>
+      </div>
+      <select id="editPostCategory" class="category-select">
+        <option value="quran">📖 القرآن</option>
+        <option value="sunnah">🕌 السنة الشريفة</option>
+        <option value="companions">⭐ قصص الصحابة</option>
+        <option value="taifa">🤝 إخوان الطائفة المنصورة</option>
+      </select>
+      <textarea id="editPostContent"></textarea>
+      <div class="modal-actions">
+        <button id="saveEditBtn" class="btn-primary">حفظ التعديلات</button>
+        <button class="btn-secondary" data-close="editModal">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== لوحة التحكم ===== -->
+  <div id="adminModal" class="modal hidden">
+    <div class="modal-content modal-large">
+      <div class="modal-header">
+        <h2>⚙️ لوحة التحكم</h2>
+        <button class="close-btn" data-close="adminModal">✕</button>
+      </div>
+
+      <div class="admin-section">
+        <h3>👥 إعدادات المشرفين</h3>
+        <div class="setting-row">
+          <label>الحد الأقصى لعدد المشرفين:</label>
+          <input type="number" id="maxAdminsInput" min="1" value="1" />
+          <button id="saveMaxAdminsBtn" class="btn-primary">حفظ</button>
+        </div>
+        <p class="hint">
+          المشرفون الحاليون: <span id="currentAdminCount">0</span> /
+          <span id="maxAdminsDisplay">1</span>
+        </p>
+        <p class="success" id="adminSettingsMsg"></p>
+      </div>
+
+      <div class="admin-section">
+        <h3>📋 المستخدمون</h3>
+        <div id="usersList" class="users-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

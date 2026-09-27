@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://Sahwatjeel.github.io/REPO/sitemap.xml

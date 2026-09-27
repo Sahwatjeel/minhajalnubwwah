@@ -10,9 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================
-   المتغيرات العامة
-   ============================================ */
+/* ============ المتغيرات ============ */
 :root {
   --green: #2e7d32;
   --green-light: #4caf50;
@@ -58,7 +56,7 @@ body {
 
 .hidden { display: none !important; }
 
-/* ===== الزخرفة الإسلامية ===== */
+/* ============ الزخرفة الإسلامية ============ */
 body::before {
   content: "";
   position: fixed;
@@ -75,12 +73,9 @@ body::before {
 }
 
 .main-wrapper,
-.auth-container {
-  position: relative;
-  z-index: 1;
-}
+.auth-container { position: relative; z-index: 1; }
 
-/* ===== اسم الموقع مع اللمعان ===== */
+/* ============ اسم الموقع ============ */
 .site-title,
 .site-title-auth {
   font-family: var(--font-title);
@@ -129,11 +124,7 @@ body::before {
   filter: drop-shadow(0 2px 8px rgba(76, 175, 80, 0.5));
 }
 
-.site-title {
-  font-size: 42px;
-  flex: 1;
-  display: block;
-}
+.site-title { font-size: 42px; flex: 1; display: block; }
 
 .site-title-auth {
   font-size: 58px;
@@ -167,21 +158,11 @@ body::before {
     titleShine 3.5s linear 1s infinite;
 }
 
-@keyframes titleShine {
-  to { background-position: 200% center; }
-}
+@keyframes titleShine { to { background-position: 200% center; } }
 
 @keyframes titleEntrance {
-  0% {
-    opacity: 0;
-    transform: scale(0.85);
-    filter: blur(10px) drop-shadow(0 0 0 rgba(46, 125, 50, 0));
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-    filter: blur(0) drop-shadow(0 2px 4px rgba(46, 125, 50, 0.25));
-  }
+  0% { opacity: 0; transform: scale(0.85); filter: blur(10px) drop-shadow(0 0 0 rgba(46, 125, 50, 0)); }
+  100% { opacity: 1; transform: scale(1); filter: blur(0) drop-shadow(0 2px 4px rgba(46, 125, 50, 0.25)); }
 }
 
 @keyframes ornamentAppear {
@@ -189,7 +170,7 @@ body::before {
   100% { opacity: 1; transform: translateY(-50%) scale(1) rotate(0deg); }
 }
 
-/* ===== صفحة تسجيل الدخول ===== */
+/* ============ صفحة الدخول ============ */
 .auth-container {
   min-height: 100vh;
   display: flex;
@@ -268,19 +249,11 @@ body::before {
   font-size: 14px;
 }
 
-.tab.active {
-  background: var(--green);
-  color: white;
-}
+.tab.active { background: var(--green); color: white; }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.form { display: flex; flex-direction: column; gap: 12px; }
 
-input,
-textarea {
+input, textarea {
   padding: 14px;
   border: 2px solid var(--border);
   border-radius: 12px;
@@ -291,8 +264,7 @@ textarea {
   outline: none;
 }
 
-input:focus,
-textarea:focus { border-color: var(--green); }
+input:focus, textarea:focus { border-color: var(--green); }
 
 .btn-primary {
   padding: 14px;
@@ -320,14 +292,9 @@ textarea:focus { border-color: var(--green); }
 
 .btn-secondary:hover { border-color: var(--green); color: var(--green); }
 
-.error {
-  color: #e53935;
-  font-size: 13px;
-  text-align: center;
-  min-height: 18px;
-}
+.error { color: #e53935; font-size: 13px; text-align: center; min-height: 18px; }
 
-/* ===== قائمة اختيار نوع الحساب ===== */
+/* ============ قائمة نوع الحساب ============ */
 .role-selector-wrapper {
   display: flex;
   flex-direction: column;
@@ -361,17 +328,12 @@ textarea:focus { border-color: var(--green); }
 
 .role-select:focus { border-color: var(--green); }
 
-.role-hint {
-  font-size: 12px;
-  color: var(--text-muted);
-  text-align: center;
-  margin: 0;
-}
+.role-hint { font-size: 12px; color: var(--text-muted); text-align: center; margin: 0; }
 
-/* ===== التخطيط الرئيسي ===== */
+/* ============ التخطيط الرئيسي ============ */
 .main-wrapper { display: flex; min-height: 100vh; }
 
-/* ===== الشريط الجانبي ===== */
+/* ============ الشريط الجانبي ============ */
 .sidebar {
   width: 270px;
   background: var(--card-bg);
@@ -404,13 +366,7 @@ textarea:focus { border-color: var(--green); }
   text-align: center;
 }
 
-.sidebar-logo {
-  display: block;
-  font-size: 32px;
-  color: var(--green);
-  margin-bottom: 8px;
-  line-height: 1;
-}
+.sidebar-logo { display: block; font-size: 32px; color: var(--green); margin-bottom: 8px; line-height: 1; }
 
 .sidebar-title {
   font-family: var(--font-title);
@@ -419,13 +375,7 @@ textarea:focus { border-color: var(--green); }
   letter-spacing: 1px;
 }
 
-.sidebar-nav {
-  display: flex;
-  flex-direction: column;
-  padding: 15px 12px;
-  gap: 6px;
-  flex: 1;
-}
+.sidebar-nav { display: flex; flex-direction: column; padding: 15px 12px; gap: 6px; flex: 1; }
 
 .nav-item {
   display: flex;
@@ -445,10 +395,7 @@ textarea:focus { border-color: var(--green); }
   border-right: 3px solid transparent;
 }
 
-.nav-item:hover {
-  background: var(--bg);
-  border-right-color: var(--green-light);
-}
+.nav-item:hover { background: var(--bg); border-right-color: var(--green-light); }
 
 .nav-item.active {
   background: linear-gradient(90deg, rgba(46, 125, 50, 0.12), rgba(46, 125, 50, 0.04));
@@ -471,15 +418,10 @@ textarea:focus { border-color: var(--green); }
 
 .sidebar-user-email { display: block; direction: ltr; }
 
-/* ===== المحتوى ===== */
-.content {
-  flex: 1;
-  padding: 20px 30px;
-  max-width: 100%;
-  overflow-x: hidden;
-}
+/* ============ المحتوى ============ */
+.content { flex: 1; padding: 20px 30px; max-width: 100%; overflow-x: hidden; }
 
-/* ===== الترويسة ===== */
+/* ============ الترويسة ============ */
 .header {
   display: flex;
   justify-content: space-between;
@@ -509,7 +451,7 @@ textarea:focus { border-color: var(--green); }
 
 .icon-btn:hover { border-color: var(--green); }
 
-/* ===== شريط المعلومات ===== */
+/* ============ شريط المعلومات ============ */
 .user-info {
   padding: 12px 16px;
   background: var(--card-bg);
@@ -534,13 +476,9 @@ textarea:focus { border-color: var(--green); }
 }
 
 .role-badge.admin { background: var(--green); color: white; }
-.role-badge.user {
-  background: transparent;
-  color: var(--text-muted);
-  border: 1px solid var(--border);
-}
+.role-badge.user { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
 
-/* ===== بانر القسم ===== */
+/* ============ بانر القسم ============ */
 .category-banner {
   display: flex;
   align-items: center;
@@ -568,7 +506,7 @@ textarea:focus { border-color: var(--green); }
 
 .category-banner span { font-size: 26px; }
 
-/* ===== اختيار القسم ===== */
+/* ============ اختيار القسم ============ */
 .category-select {
   width: 100%;
   padding: 12px 14px;
@@ -585,7 +523,7 @@ textarea:focus { border-color: var(--green); }
 .category-select:focus { border-color: var(--green); }
 #editPostCategory { margin-bottom: 12px; }
 
-/* ===== إنشاء منشور ===== */
+/* ============ إنشاء منشور ============ */
 .create-post {
   background: var(--card-bg);
   padding: 20px;
@@ -599,22 +537,102 @@ textarea:focus { border-color: var(--green); }
   overflow: hidden;
 }
 
-.create-post::before {
-  content: "";
-  position: absolute;
-  top: -20px;
-  left: -20px;
-  width: 100px;
-  height: 100px;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%232e7d32' stroke-width='0.8' opacity='0.06'%3E%3Cpolygon points='50,10 58,35 83,35 63,50 71,75 50,60 29,75 37,50 17,35 42,35'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
 .create-post textarea { min-height: 90px; resize: vertical; }
 
-/* ===== المنشورات ===== */
+/* ============ رفع الملفات ============ */
+.file-upload-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.file-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: 2px dashed var(--border);
+  border-radius: 12px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  font-family: var(--font-body);
+}
+
+.file-upload-btn:hover {
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(76, 175, 80, 0.05);
+}
+
+.file-upload-btn.has-file {
+  border-style: solid;
+  border-color: var(--green);
+  color: var(--green);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.file-upload-btn input[type="file"] { display: none; }
+
+.file-preview {
+  position: relative;
+  display: inline-block;
+  max-width: 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--green-light);
+  background: var(--bg);
+}
+
+.file-preview img {
+  display: block;
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+}
+
+.file-preview-remove {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(229, 57, 53, 0.9);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ============ صورة المنشور ============ */
+.post-image {
+  margin-top: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 100%;
+  cursor: pointer;
+  border: 2px solid var(--border);
+  transition: transform 0.2s;
+}
+
+.post-image:hover { transform: scale(1.01); border-color: var(--green); }
+
+.post-image img {
+  display: block;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+/* ============ المنشورات ============ */
 .posts-list { display: flex; flex-direction: column; gap: 15px; }
 
 .post {
@@ -663,7 +681,7 @@ textarea:focus { border-color: var(--green); }
   word-break: break-word;
 }
 
-/* ===== أزرار المنشور ===== */
+/* ============ أزرار المنشور ============ */
 .post-actions {
   display: flex;
   gap: 8px;
@@ -688,18 +706,9 @@ textarea:focus { border-color: var(--green); }
 }
 
 .btn-action:hover { border-color: var(--green); color: var(--green); }
+.btn-action.liked { background: #ffebee; border-color: #e53935; color: #e53935; }
 
-.btn-action.liked {
-  background: #ffebee;
-  border-color: #e53935;
-  color: #e53935;
-}
-
-[data-theme="dark"] .btn-action.liked {
-  background: #3a1518;
-  color: #ff6b6b;
-  border-color: #ff6b6b;
-}
+[data-theme="dark"] .btn-action.liked { background: #3a1518; color: #ff6b6b; border-color: #ff6b6b; }
 
 .btn-edit {
   background: transparent;
@@ -725,7 +734,7 @@ textarea:focus { border-color: var(--green); }
 
 .btn-delete:hover { background: #e53935; color: white; }
 
-/* ===== التعليقات ===== */
+/* ============ التعليقات ============ */
 .comments-section {
   margin-top: 12px;
   padding-top: 12px;
@@ -764,23 +773,13 @@ textarea:focus { border-color: var(--green); }
   margin-top: 4px;
 }
 
-.comment-input-row {
-  display: flex;
-  gap: 8px;
-  margin-top: 10px;
-}
-
+.comment-input-row { display: flex; gap: 8px; margin-top: 10px; }
 .comment-input-row input { flex: 1; padding: 10px 14px; font-size: 14px; }
 .comment-input-row button { padding: 10px 18px; font-size: 14px; }
 
-.no-comments {
-  font-size: 13px;
-  color: var(--text-muted);
-  text-align: center;
-  padding: 8px;
-}
+.no-comments { font-size: 13px; color: var(--text-muted); text-align: center; padding: 8px; }
 
-/* ===== النوافذ ===== */
+/* ============ النوافذ ============ */
 .modal {
   position: fixed;
   inset: 0;
@@ -807,7 +806,7 @@ textarea:focus { border-color: var(--green); }
   position: relative;
 }
 
-.modal-content.modal-large { max-width: 700px; }
+.modal-content.modal-large { max-width: 750px; }
 
 @keyframes modalIn {
   from { opacity: 0; transform: scale(0.95) translateY(10px); }
@@ -847,7 +846,247 @@ textarea:focus { border-color: var(--green); }
 
 .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
 
-/* ===== لوحة التحكم ===== */
+/* ============ تبويبات النافذة ============ */
+.modal-tabs {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  background: var(--bg);
+  padding: 5px;
+  border-radius: 12px;
+  flex-wrap: wrap;
+}
+
+.modal-tab {
+  flex: 1;
+  min-width: 100px;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: var(--font-body);
+  transition: all 0.2s;
+}
+
+.modal-tab:hover { color: var(--green); }
+.modal-tab.active { background: var(--green); color: white; }
+
+/* ============ أقسام لوحة التحكم ============ */
+.dash-section { display: none; animation: fadeIn 0.3s ease; }
+.dash-section.active { display: block; }
+
+.section-title {
+  color: var(--green);
+  font-family: var(--font-title);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+  letter-spacing: 1px;
+}
+
+/* ============ بطاقة البروفايل ============ */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(46, 125, 50, 0.08), rgba(76, 175, 80, 0.04));
+  border-radius: 16px;
+  border-right: 4px solid var(--green);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.profile-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.3);
+  font-family: var(--font-title);
+}
+
+.profile-info { flex: 1; min-width: 0; }
+
+.profile-email {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+  word-break: break-all;
+  direction: ltr;
+  text-align: right;
+}
+
+.profile-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-muted);
+  align-items: center;
+}
+
+/* ============ بطاقات الإحصائيات ============ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--bg);
+  padding: 18px 14px;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid var(--border);
+  border-bottom: 3px solid var(--green-light);
+  transition: all 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.15);
+}
+
+.stat-icon { font-size: 26px; margin-bottom: 6px; display: block; }
+.stat-value { font-size: 26px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+.stat-label { font-size: 12px; color: var(--text-muted); }
+
+/* ============ قائمة الأعضاء ============ */
+.members-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  transition: all 0.2s;
+}
+
+.filter-btn:hover { border-color: var(--green); color: var(--green); }
+.filter-btn.active { background: var(--green); color: white; border-color: var(--green); }
+
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 450px;
+  overflow-y: auto;
+  padding-left: 4px;
+}
+
+.member-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: 14px;
+  border-right: 4px solid var(--border);
+  transition: all 0.2s;
+}
+
+.member-card:hover { transform: translateX(-4px); border-right-color: var(--green-light); }
+.member-card.is-admin { border-right-color: var(--green); background: linear-gradient(90deg, rgba(46, 125, 50, 0.08), var(--bg)); }
+
+.member-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--green), var(--green-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  flex-shrink: 0;
+  font-family: var(--font-title);
+}
+
+.member-card.is-admin .member-avatar {
+  background: linear-gradient(135deg, #f9a825, #ffb300);
+  box-shadow: 0 4px 15px rgba(249, 168, 37, 0.4);
+}
+
+.member-info { flex: 1; min-width: 0; }
+
+.member-email {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  word-break: break-all;
+  direction: ltr;
+  text-align: right;
+}
+
+.member-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.member-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+.member-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.member-badge.admin { background: #ffb300; color: white; }
+.member-badge.user { background: transparent; color: var(--text-muted); border: 1px solid var(--border); }
+
+.member-badge.me { background: rgba(46, 125, 50, 0.15); color: var(--green); }
+
+/* ============ أزرار صغيرة ============ */
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+.btn-sm.promote { border-color: var(--green); color: var(--green); }
+.btn-sm.promote:hover:not(:disabled) { background: var(--green); color: white; }
+.btn-sm.demote { border-color: #e53935; color: #e53935; }
+.btn-sm.demote:hover:not(:disabled) { background: #e53935; color: white; }
+.btn-sm:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ============ الإعدادات ============ */
 .admin-section {
   margin-bottom: 25px;
   padding-bottom: 20px;
@@ -857,58 +1096,17 @@ textarea:focus { border-color: var(--green); }
 .admin-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
 .admin-section h3 { color: var(--green); font-size: 16px; margin-bottom: 15px; }
 
-.setting-row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
+.setting-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .setting-row label { font-size: 14px; color: var(--text-muted); }
 .setting-row input { width: 100px; padding: 10px; text-align: center; }
 
 .hint { font-size: 13px; color: var(--text-muted); margin-top: 10px; }
 .success { color: var(--green); font-size: 13px; margin-top: 8px; min-height: 18px; }
 
-/* ===== قائمة المستخدمين ===== */
-.users-list { display: flex; flex-direction: column; gap: 10px; }
-
-.user-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 16px;
-  background: var(--bg);
-  border-radius: 12px;
-  border-right: 3px solid var(--border);
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.user-row.is-admin { border-right-color: var(--green); }
-.user-row-email { font-size: 14px; word-break: break-all; }
-.user-row-actions { display: flex; gap: 8px; }
-
-.btn-sm {
-  padding: 6px 12px;
-  font-size: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--text);
-}
-
-.btn-sm.promote { border-color: var(--green); color: var(--green); }
-.btn-sm.promote:hover:not(:disabled) { background: var(--green); color: white; }
-.btn-sm.demote { border-color: #e53935; color: #e53935; }
-.btn-sm.demote:hover:not(:disabled) { background: #e53935; color: white; }
-.btn-sm:disabled { opacity: 0.4; cursor: not-allowed; }
-
-/* ===== حالة فارغة ===== */
+/* ============ حالة فارغة ============ */
 .empty-state { text-align: center; padding: 40px; color: var(--text-muted); }
 
-/* ===== غطاء الجوال ===== */
+/* ============ غطاء الجوال ============ */
 .sidebar-overlay {
   display: none;
   position: fixed;
@@ -919,26 +1117,43 @@ textarea:focus { border-color: var(--green); }
 
 .sidebar-overlay.active { display: block; }
 
-/* ===== تقليل الحركة ===== */
-@media (prefers-reduced-motion: reduce) {
-  .site-title,
-  .site-title-auth {
-    animation: none !important;
-    background-position: 0% center;
-  }
-  .site-title-auth.animate-in,
-  .site-title.animate-in {
-    animation: titleEntrance 0.3s ease both !important;
-  }
-  .site-title-auth::before,
-  .site-title-auth::after {
-    animation: none !important;
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-  }
+/* ============ عارض الصورة ============ */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 30px;
+  cursor: zoom-out;
+  animation: fadeIn 0.2s ease;
 }
 
-/* ===== استجابة الجوال ===== */
+.image-viewer img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.image-viewer-close {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: white;
+  color: #1a1a1a;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* ============ استجابة الجوال ============ */
 @media (max-width: 900px) {
   .sidebar {
     position: fixed;
@@ -968,6 +1183,8 @@ textarea:focus { border-color: var(--green); }
   .site-title-auth { font-size: 28px; padding: 0 30px; }
   .site-title-auth::before,
   .site-title-auth::after { font-size: 16px; }
+  .member-card { flex-wrap: wrap; }
+  .member-actions { width: 100%; justify-content: flex-end; }
 }
 </style>
 </head>
@@ -1052,7 +1269,7 @@ textarea:focus { border-color: var(--green); }
       <button id="menuToggle" class="icon-btn menu-toggle" title="القائمة">☰</button>
       <h1 class="site-title">منهاج النبوة</h1>
       <div class="header-actions">
-        <button id="adminPanelBtn" class="icon-btn hidden" title="لوحة التحكم">⚙️</button>
+        <button id="dashBtn" class="icon-btn" title="لوحة التحكم">⚙️</button>
         <button id="themeToggle" class="icon-btn" title="الوضع الليلي">🌙</button>
         <button id="logoutBtn" class="btn-secondary">خروج</button>
       </div>
@@ -1076,6 +1293,18 @@ textarea:focus { border-color: var(--green); }
         <option value="taifa">🤝 إخوان الطائفة المنصورة</option>
       </select>
       <textarea id="postContent" placeholder="اكتب منشوراً جديداً..."></textarea>
+
+      <div class="file-upload-row">
+        <label class="file-upload-btn" id="fileUploadLabel">
+          📎 <span>إرفاق صورة (اختياري)</span>
+          <input type="file" id="postImage" accept="image/*" />
+        </label>
+        <div class="file-preview hidden" id="filePreview">
+          <img id="filePreviewImg" alt="معاينة" />
+          <button type="button" class="file-preview-remove" id="fileRemoveBtn">✕</button>
+        </div>
+      </div>
+
       <button id="addPostBtn" class="btn-primary">نشر</button>
     </div>
 
@@ -1099,6 +1328,18 @@ textarea:focus { border-color: var(--green); }
       <option value="taifa">🤝 إخوان الطائفة المنصورة</option>
     </select>
     <textarea id="editPostContent"></textarea>
+
+    <div class="file-upload-row" style="margin-bottom:12px;">
+      <label class="file-upload-btn" id="editFileUploadLabel">
+        📎 <span>تغيير الصورة (اختياري)</span>
+        <input type="file" id="editPostImage" accept="image/*" />
+      </label>
+      <div class="file-preview hidden" id="editFilePreview">
+        <img id="editFilePreviewImg" alt="معاينة" />
+        <button type="button" class="file-preview-remove" id="editFileRemoveBtn">✕</button>
+      </div>
+    </div>
+
     <div class="modal-actions">
       <button id="saveEditBtn" class="btn-primary">حفظ التعديلات</button>
       <button class="btn-secondary" data-close="editModal">إلغاء</button>
@@ -1110,38 +1351,111 @@ textarea:focus { border-color: var(--green); }
 <div id="adminModal" class="modal hidden">
   <div class="modal-content modal-large">
     <div class="modal-header">
-      <h2>⚙️ لوحة التحكم</h2>
+      <h2 id="dashTitle">⚙️ لوحة التحكم</h2>
       <button class="close-btn" data-close="adminModal">✕</button>
     </div>
 
-    <div class="admin-section">
-      <h3>👥 إعدادات المشرفين</h3>
-      <div class="setting-row">
-        <label>الحد الأقصى لعدد المشرفين:</label>
-        <input type="number" id="maxAdminsInput" min="1" value="1" />
-        <button id="saveMaxAdminsBtn" class="btn-primary">حفظ</button>
-      </div>
-      <p class="hint">
-        المشرفون الحاليون: <span id="currentAdminCount">0</span> /
-        <span id="maxAdminsDisplay">1</span>
-      </p>
-      <p class="success" id="adminSettingsMsg"></p>
+    <div class="modal-tabs" id="dashTabs">
+      <button type="button" class="modal-tab active" data-dash="my">👤 حسابي</button>
+      <button type="button" class="modal-tab" data-dash="members">👥 الأعضاء</button>
+      <button type="button" class="modal-tab hidden" data-dash="settings" id="settingsTabBtn">🛠️ الإعدادات</button>
     </div>
 
-    <div class="admin-section">
-      <h3>📋 المستخدمون</h3>
-      <div id="usersList" class="users-list"></div>
+    <div class="dash-section active" id="dash-my">
+      <h3 class="section-title">معلومات الحساب</h3>
+      <div class="profile-card">
+        <div class="profile-avatar" id="profileAvatar">م</div>
+        <div class="profile-info">
+          <div class="profile-email" id="profileEmail">—</div>
+          <div class="profile-meta">
+            <span class="role-badge" id="profileRoleBadge">مستخدم</span>
+            <span id="profileJoinDate">تاريخ التسجيل: —</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="section-title">إحصائياتي</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-icon">📝</span>
+          <div class="stat-value" id="statMyPosts">0</div>
+          <div class="stat-label">منشوراتي</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">❤️</span>
+          <div class="stat-value" id="statMyLikes">0</div>
+          <div class="stat-label">إعجابات مستلمة</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">💬</span>
+          <div class="stat-value" id="statMyComments">0</div>
+          <div class="stat-label">تعليقاتي</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-icon">🖼️</span>
+          <div class="stat-value" id="statMyImages">0</div>
+          <div class="stat-label">صور رفعتها</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dash-section" id="dash-members">
+      <h3 class="section-title">قائمة المشرفين والمستخدمين</h3>
+
+      <div class="members-filters">
+        <button type="button" class="filter-btn active" data-filter="all">الكل</button>
+        <button type="button" class="filter-btn" data-filter="admin">👑 المشرفون</button>
+        <button type="button" class="filter-btn" data-filter="user">👤 المستخدمون</button>
+      </div>
+
+      <div class="members-list" id="membersList"></div>
+    </div>
+
+    <div class="dash-section" id="dash-settings">
+      <h3 class="section-title">إعدادات المشرفين</h3>
+
+      <div class="admin-section">
+        <div class="setting-row">
+          <label>الحد الأقصى لعدد المشرفين:</label>
+          <input type="number" id="maxAdminsInput" min="1" value="1" />
+          <button id="saveMaxAdminsBtn" class="btn-primary">حفظ</button>
+        </div>
+        <p class="hint">
+          المشرفون الحاليون: <span id="currentAdminCount">0</span> /
+          <span id="maxAdminsDisplay">1</span>
+        </p>
+        <p class="success" id="adminSettingsMsg"></p>
+      </div>
+
+      <div class="admin-section">
+        <h3>📊 إحصائيات عامة</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-icon">👥</span>
+            <div class="stat-value" id="statTotalUsers">0</div>
+            <div class="stat-label">إجمالي المستخدمين</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">📝</span>
+            <div class="stat-value" id="statTotalPosts">0</div>
+            <div class="stat-label">إجمالي المنشورات</div>
+          </div>
+          <div class="stat-card">
+            <span class="stat-icon">❤️</span>
+            <div class="stat-value" id="statTotalLikes">0</div>
+            <div class="stat-label">إجمالي الإعجابات</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- ============================================
-     JavaScript مدمج
+     JavaScript
      ============================================ -->
 <script type="module">
-// ============================================
-// 1. استيراد Firebase من CDN
-// ============================================
+// ============ Firebase Imports ============
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
   getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,
@@ -1151,37 +1465,45 @@ import {
   getFirestore, collection, doc, addDoc, setDoc, getDoc, getDocs,
   deleteDoc, updateDoc, query, orderBy, onSnapshot, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+import {
+  getStorage, ref as storageRef, uploadBytes, getDownloadURL, deleteObject
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-storage.js";
 
 // ============================================
-// 2. إعدادات Firebase
+// ✅ إعدادات Firebase المحدّثة - مشروع minhajalnubwwa
 // ============================================
 const firebaseConfig = {
-  apiKey: "AIzaSyCHVDdogr87Pc4v5FhPA2ffGknCZ9naU6w",
-  authDomain: "sahwataljeal.firebaseapp.com",
-  projectId: "sahwataljeal",
-  storageBucket: "sahwataljeal.firebasestorage.app",
-  messagingSenderId: "587826377850",
-  appId: "1:587826377850:web:088242a20224318d23f7c3",
-  measurementId: "G-K4H4EWV795"
+  apiKey: "AIzaSyB12IHBDzJ0V-eNC0bUeibTkMQcj9FAGoM",
+  authDomain: "minhajalnubwwa.firebaseapp.com",
+  projectId: "minhajalnubwwa",
+  storageBucket: "minhajalnubwwa.firebasestorage.app",
+  messagingSenderId: "566117460117",
+  appId: "1:566117460117:web:e18ef69b8637c6f01f139c",
+  measurementId: "G-WBJGPXNC6Y"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
-console.log("🔥 Firebase تم تهيئته بنجاح");
+console.log("🔥 Firebase تم تهيئته - مشروع: minhajalnubwwa");
 
-// ============================================
-// 3. الحالة العامة
-// ============================================
+// ============ الحالة العامة ============
 let currentUser = null;
 let currentUserData = null;
 let unsubscribeUserDoc = null;
 let unsubscribePosts = null;
 let postsCache = {};
+let usersCache = [];
 let currentCategory = "all";
+let currentMemberFilter = "all";
 let editingPostId = null;
 let pendingSignupRole = null;
+let pendingImageFile = null;
+let pendingEditImageFile = null;
+let editingExistingImage = null;
+let unsubscribeLikes = {};
 
 const CATEGORIES = {
   all:        { name: "جميع المنشورات",        icon: "📚" },
@@ -1191,9 +1513,7 @@ const CATEGORIES = {
   taifa:      { name: "إخوان الطائفة المنصورة", icon: "🤝" }
 };
 
-// ============================================
-// 4. عناصر DOM
-// ============================================
+// ============ عناصر DOM ============
 const authPage = document.getElementById("authPage");
 const mainPage = document.getElementById("mainPage");
 const loginForm = document.getElementById("loginForm");
@@ -1208,7 +1528,19 @@ const postCategory = document.getElementById("postCategory");
 const addPostBtn = document.getElementById("addPostBtn");
 const postsList = document.getElementById("postsList");
 const themeToggle = document.getElementById("themeToggle");
-const adminPanelBtn = document.getElementById("adminPanelBtn");
+const dashBtn = document.getElementById("dashBtn");
+
+const postImageInput = document.getElementById("postImage");
+const fileUploadLabel = document.getElementById("fileUploadLabel");
+const filePreview = document.getElementById("filePreview");
+const filePreviewImg = document.getElementById("filePreviewImg");
+const fileRemoveBtn = document.getElementById("fileRemoveBtn");
+
+const editPostImageInput = document.getElementById("editPostImage");
+const editFileUploadLabel = document.getElementById("editFileUploadLabel");
+const editFilePreview = document.getElementById("editFilePreview");
+const editFilePreviewImg = document.getElementById("editFilePreviewImg");
+const editFileRemoveBtn = document.getElementById("editFileRemoveBtn");
 
 const sidebar = document.getElementById("sidebar");
 const sidebarOverlay = document.getElementById("sidebarOverlay");
@@ -1227,16 +1559,16 @@ const editPostContent = document.getElementById("editPostContent");
 const editPostCategory = document.getElementById("editPostCategory");
 const saveEditBtn = document.getElementById("saveEditBtn");
 const adminModal = document.getElementById("adminModal");
+const dashTitle = document.getElementById("dashTitle");
 const maxAdminsInput = document.getElementById("maxAdminsInput");
 const saveMaxAdminsBtn = document.getElementById("saveMaxAdminsBtn");
 const currentAdminCountEl = document.getElementById("currentAdminCount");
 const maxAdminsDisplay = document.getElementById("maxAdminsDisplay");
 const adminSettingsMsg = document.getElementById("adminSettingsMsg");
-const usersList = document.getElementById("usersList");
+const membersList = document.getElementById("membersList");
+const settingsTabBtn = document.getElementById("settingsTabBtn");
 
-// ============================================
-// 5. أدوات مساعدة
-// ============================================
+// ============ أدوات ============
 function escapeHtml(str) {
   const div = document.createElement("div");
   div.textContent = str ?? "";
@@ -1244,6 +1576,16 @@ function escapeHtml(str) {
 }
 
 function isAdmin() { return currentUserData?.role === "admin"; }
+
+function getInitial(email) {
+  if (!email) return "؟";
+  return email.charAt(0).toUpperCase();
+}
+
+function formatDate(ts) {
+  if (!ts?.toDate) return "—";
+  return ts.toDate().toLocaleDateString("ar-EG");
+}
 
 function translateError(code) {
   const map = {
@@ -1253,9 +1595,11 @@ function translateError(code) {
     "auth/invalid-credential": "بيانات الدخول غير صحيحة",
     "auth/email-already-in-use": "البريد الإلكتروني مستخدم مسبقاً",
     "auth/weak-password": "كلمة المرور ضعيفة (6 أحرف على الأقل)",
-    "permission-denied": "ليس لديك صلاحية (راجع قواعد Firestore)",
-    "unavailable": "تعذّر الاتصال بالخادم، تحقق من الإنترنت",
-    "failed-precondition": "يحتاج Firestore إلى فهرس (راجع Console)"
+    "permission-denied": "ليس لديك صلاحية",
+    "unavailable": "تعذّر الاتصال بالخادم",
+    "storage/unauthorized": "غير مصرّح برفع الملفات (راجع قواعد Storage)",
+    "storage/canceled": "تم إلغاء الرفع",
+    "storage/unknown": "خطأ غير معروف في الرفع"
   };
   return map[code] || "حدث خطأ، حاول مرة أخرى";
 }
@@ -1268,9 +1612,7 @@ function playTitleAnimation(selector) {
   el.classList.add("animate-in");
 }
 
-// ============================================
-// 6. التبويبات
-// ============================================
+// ============ التبويبات ============
 document.querySelectorAll(".tab").forEach(tab => {
   tab.addEventListener("click", () => {
     document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
@@ -1282,99 +1624,161 @@ document.querySelectorAll(".tab").forEach(tab => {
     signupError.textContent = "";
   });
 });
-console.log("✅ التبويبات جاهزة");
 
-// ============================================
-// 7. إغلاق النوافذ
-// ============================================
+// ============ إغلاق النوافذ ============
 document.querySelectorAll("[data-close]").forEach(btn => {
   btn.addEventListener("click", () => {
     const modalId = btn.dataset.close;
     document.getElementById(modalId).classList.add("hidden");
-    if (modalId === "editModal") editingPostId = null;
+    if (modalId === "editModal") {
+      editingPostId = null;
+      resetEditImage();
+    }
   });
 });
 
-// ============================================
-// 8. توفّر مقعد مشرف
-// ============================================
-async function loadSignupAvailability() {
+// ============ رفع الصور ============
+function setFilePreview(file, previewEl, imgEl, labelEl) {
+  if (!file) {
+    previewEl.classList.add("hidden");
+    labelEl.classList.remove("has-file");
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    imgEl.src = e.target.result;
+    previewEl.classList.remove("hidden");
+    labelEl.classList.add("has-file");
+  };
+  reader.readAsDataURL(file);
+}
+
+postImageInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) {
+    alert("حجم الصورة يتجاوز 5 ميجابايت");
+    postImageInput.value = "";
+    return;
+  }
+  pendingImageFile = file;
+  setFilePreview(file, filePreview, filePreviewImg, fileUploadLabel);
+});
+
+fileRemoveBtn.addEventListener("click", () => {
+  pendingImageFile = null;
+  postImageInput.value = "";
+  setFilePreview(null, filePreview, filePreviewImg, fileUploadLabel);
+});
+
+editPostImageInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) {
+    alert("حجم الصورة يتجاوز 5 ميجابايت");
+    editPostImageInput.value = "";
+    return;
+  }
+  pendingEditImageFile = file;
+  setFilePreview(file, editFilePreview, editFilePreviewImg, editFileUploadLabel);
+});
+
+editFileRemoveBtn.addEventListener("click", () => {
+  pendingEditImageFile = null;
+  editPostImageInput.value = "";
+  setFilePreview(null, editFilePreview, editFilePreviewImg, editFileUploadLabel);
+});
+
+function resetEditImage() {
+  pendingEditImageFile = null;
+  editPostImageInput.value = "";
+  setFilePreview(null, editFilePreview, editFilePreviewImg, editFileUploadLabel);
+}
+
+async function uploadImage(file, userId) {
+  const timestamp = Date.now();
+  const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_");
+  const path = `posts/${userId}/${timestamp}_${safeName}`;
+  const sref = storageRef(storage, path);
+  await uploadBytes(sref, file);
+  const url = await getDownloadURL(sref);
+  return { url, path };
+}
+
+async function deleteImageByPath(path) {
+  if (!path) return;
   try {
-    console.log("🔍 التحقق من توفّر مقعد مشرف...");
-    const settingsRef = doc(db, "settings", "config");
-    const snap = await getDoc(settingsRef);
-
-    let maxAdmins = 1;
-    let currentAdminCount = 0;
-
-    if (snap.exists()) {
-      maxAdmins = snap.data().maxAdmins ?? 1;
-      currentAdminCount = snap.data().currentAdminCount ?? 0;
-      console.log("📊 الإعدادات:", { maxAdmins, currentAdminCount });
-    } else {
-      console.log("ℹ️ لا توجد إعدادات بعد (أول تشغيل) - عرض القائمة");
-    }
-
-    const canSignupAsAdmin = currentAdminCount < maxAdmins;
-    roleSelectorWrapper.classList.toggle("hidden", !canSignupAsAdmin);
-
-    if (canSignupAsAdmin) {
-      const remaining = maxAdmins - currentAdminCount;
-      roleHint.textContent = `يوجد ${remaining} مقعد مشرف متاح`;
-      console.log("✅ القائمة ظاهرة - متاح:", remaining);
-    } else {
-      console.log("🚫 لا توجد مقاعد مشرف متاحة");
-    }
-  } catch (err) {
-    console.error("❌ خطأ في تحميل الإعدادات:", err);
-    // في حال فشل الاتصال، نعرض القائمة افتراضياً (لأول تشغيل)
-    roleSelectorWrapper.classList.remove("hidden");
-    roleHint.textContent = "اختر نوع الحساب";
+    await deleteObject(storageRef(storage, path));
+  } catch (e) {
+    console.warn("تعذّر حذف الصورة:", e);
   }
 }
 
-// ============================================
-// 9. تسجيل الدخول
-// ============================================
+// ============ عارض الصورة ============
+function openImageViewer(url) {
+  const viewer = document.createElement("div");
+  viewer.className = "image-viewer";
+  viewer.innerHTML = `
+    <button class="image-viewer-close">✕</button>
+    <img src="${url}" alt="عرض الصورة" />
+  `;
+  viewer.addEventListener("click", (e) => {
+    if (e.target === viewer || e.target.classList.contains("image-viewer-close")) {
+      viewer.remove();
+    }
+  });
+  document.body.appendChild(viewer);
+}
+
+// ============ توفّر مقعد مشرف ============
+async function loadSignupAvailability() {
+  try {
+    const settingsRef = doc(db, "settings", "config");
+    const snap = await getDoc(settingsRef);
+    let maxAdmins = 1, currentAdminCount = 0;
+    if (snap.exists()) {
+      maxAdmins = snap.data().maxAdmins ?? 1;
+      currentAdminCount = snap.data().currentAdminCount ?? 0;
+    }
+    const canSignupAsAdmin = currentAdminCount < maxAdmins;
+    roleSelectorWrapper.classList.toggle("hidden", !canSignupAsAdmin);
+    if (canSignupAsAdmin) {
+      roleHint.textContent = `يوجد ${maxAdmins - currentAdminCount} مقعد مشرف متاح`;
+    }
+  } catch (err) {
+    console.error("خطأ تحميل الإعدادات:", err);
+    roleSelectorWrapper.classList.remove("hidden");
+  }
+}
+
+// ============ تسجيل الدخول ============
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   loginError.textContent = "";
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPassword").value;
-  console.log("🔐 محاولة تسجيل الدخول:", email);
   try {
     await signInWithEmailAndPassword(auth, email, password);
-    console.log("✅ تم تسجيل الدخول");
     loginForm.reset();
   } catch (err) {
-    console.error("❌ خطأ في الدخول:", err.code, err.message);
     loginError.textContent = translateError(err.code) + " (" + err.code + ")";
   }
 });
 
-// ============================================
-// 10. إنشاء حساب
-// ============================================
+// ============ إنشاء حساب ============
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   signupError.textContent = "";
-
   const email = document.getElementById("signupEmail").value;
   const password = document.getElementById("signupPassword").value;
 
   const wrapperVisible = !roleSelectorWrapper.classList.contains("hidden");
-  pendingSignupRole = (wrapperVisible && signupRole)
-    ? (signupRole.value || "user")
-    : "user";
-
-  console.log("📝 محاولة إنشاء حساب:", email, "| الدور:", pendingSignupRole);
+  pendingSignupRole = (wrapperVisible && signupRole) ? (signupRole.value || "user") : "user";
 
   try {
-    const cred = await createUserWithEmailAndPassword(auth, email, password);
-    console.log("✅ تم إنشاء الحساب:", cred.user.uid);
+    await createUserWithEmailAndPassword(auth, email, password);
     signupForm.reset();
   } catch (err) {
-    console.error("❌ خطأ في التسجيل:", err.code, err.message);
     signupError.textContent = translateError(err.code) + " (" + err.code + ")";
     pendingSignupRole = null;
   }
@@ -1382,38 +1786,33 @@ signupForm.addEventListener("submit", async (e) => {
 
 logoutBtn.addEventListener("click", () => signOut(auth));
 
-// ============================================
-// 11. مراقبة حالة الدخول
-// ============================================
+// ============ مراقبة الدخول ============
 onAuthStateChanged(auth, async (user) => {
   if (unsubscribePosts) { unsubscribePosts(); unsubscribePosts = null; }
   if (unsubscribeUserDoc) { unsubscribeUserDoc(); unsubscribeUserDoc = null; }
+  Object.values(unsubscribeLikes).forEach(unsub => unsub && unsub());
+  unsubscribeLikes = {};
 
   if (user) {
-    console.log("✅ تم تسجيل الدخول:", user.email);
     currentUser = user;
     authPage.classList.add("hidden");
     mainPage.classList.remove("hidden");
 
     try {
       await ensureUserDoc(user);
-      console.log("✅ تم تجهيز وثيقة المستخدم");
       listenToUserDoc(user.uid);
       listenToPosts();
-      console.log("✅ تم تحميل المراقبات");
     } catch (err) {
-      console.error("❌ خطأ في تجهيز الحساب:", err);
-      alert("خطأ في تجهيز الحساب:\n" +
-            "الكود: " + (err.code || "غير معروف") + "\n" +
-            "الرسالة: " + err.message);
+      console.error("خطأ تجهيز الحساب:", err);
+      alert("خطأ في تجهيز الحساب: " + (err.code || err.message));
     }
 
     setTimeout(() => playTitleAnimation(".site-title"), 100);
   } else {
-    console.log("🚪 تم تسجيل الخروج");
     currentUser = null;
     currentUserData = null;
     postsCache = {};
+    usersCache = [];
     currentCategory = "all";
     editingPostId = null;
     pendingSignupRole = null;
@@ -1432,68 +1831,50 @@ onAuthStateChanged(auth, async (user) => {
   }
 });
 
-// ============================================
-// 12. وثيقة المستخدم
-// ============================================
+// ============ وثيقة المستخدم ============
 async function ensureUserDoc(user) {
   const userRef = doc(db, "users", user.uid);
   const userSnap = await getDoc(userRef);
   if (userSnap.exists()) {
-    console.log("ℹ️ وثيقة المستخدم موجودة مسبقاً");
     pendingSignupRole = null;
     return;
   }
 
-  console.log("🆕 إنشاء وثيقة مستخدم جديدة...");
-
   const settingsRef = doc(db, "settings", "config");
   let settingsSnap = await getDoc(settingsRef);
-  let maxAdmins = 1;
-  let currentAdminCount = 0;
+  let maxAdmins = 1, currentAdminCount = 0;
 
   if (settingsSnap.exists()) {
     maxAdmins = settingsSnap.data().maxAdmins ?? 1;
     currentAdminCount = settingsSnap.data().currentAdminCount ?? 0;
   } else {
-    console.log("🆕 إنشاء إعدادات افتراضية...");
     try {
       await setDoc(settingsRef, { maxAdmins: 1, currentAdminCount: 0 });
-      console.log("✅ تم إنشاء الإعدادات");
-    } catch (e) {
-      console.warn("⚠️ تعذّر إنشاء الإعدادات:", e);
-    }
+    } catch (e) {}
   }
 
   let chosenRole = pendingSignupRole || "user";
   if (chosenRole === "admin" && currentAdminCount >= maxAdmins) {
-    console.log("⚠️ تحويل الدور إلى مستخدم (لا توجد مقاعد)");
     chosenRole = "user";
   }
-
-  console.log("👤 الدور النهائي:", chosenRole);
 
   await setDoc(userRef, {
     email: user.email,
     role: chosenRole,
     createdAt: serverTimestamp()
   });
-  console.log("✅ تم إنشاء وثيقة المستخدم");
 
   if (chosenRole === "admin") {
     try {
       await updateDoc(settingsRef, { currentAdminCount: currentAdminCount + 1 });
-      console.log("✅ تم تحديث عدّاد المشرفين إلى:", currentAdminCount + 1);
-    } catch (e) {
-      console.warn("⚠️ تعذّر تحديث العدّاد:", e);
-    }
+    } catch (e) {}
   }
 
   pendingSignupRole = null;
 }
 
 function listenToUserDoc(uid) {
-  const userRef = doc(db, "users", uid);
-  unsubscribeUserDoc = onSnapshot(userRef, (snap) => {
+  unsubscribeUserDoc = onSnapshot(doc(db, "users", uid), (snap) => {
     if (!snap.exists()) return;
     currentUserData = snap.data();
     renderUserInfo();
@@ -1508,12 +1889,12 @@ function renderUserInfo() {
   const admin = isAdmin();
   roleBadge.textContent = admin ? "👑 مشرف" : "مستخدم";
   roleBadge.className = "role-badge " + (admin ? "admin" : "user");
-  adminPanelBtn.classList.toggle("hidden", !admin);
+
+  dashBtn.textContent = admin ? "⚙️" : "👤";
+  dashBtn.title = admin ? "لوحة التحكم" : "حسابي";
 }
 
-// ============================================
-// 13. المنشورات
-// ============================================
+// ============ المنشورات ============
 function listenToPosts() {
   const q = query(collection(db, "posts"), orderBy("createdAt", "desc"));
   unsubscribePosts = onSnapshot(q, (snapshot) => {
@@ -1522,14 +1903,15 @@ function listenToPosts() {
       postsCache[docSnap.id] = { id: docSnap.id, ...docSnap.data() };
     });
     renderFilteredPosts();
-  }, (err) => {
-    console.error("❌ خطأ تحميل المنشورات:", err);
-  });
+  }, (err) => console.error("خطأ تحميل المنشورات:", err));
 }
 
 function renderFilteredPosts() {
   const uid = currentUser?.uid;
   postsList.innerHTML = "";
+
+  Object.values(unsubscribeLikes).forEach(unsub => unsub && unsub());
+  unsubscribeLikes = {};
 
   const allPosts = Object.values(postsCache).sort((a, b) => {
     const da = a.createdAt?.toDate?.() || 0;
@@ -1542,9 +1924,7 @@ function renderFilteredPosts() {
     : allPosts.filter(p => p.category === currentCategory);
 
   if (filtered.length === 0) {
-    postsList.innerHTML = `<div class="empty-state">
-      لا توجد منشورات في هذا القسم بعد. كن أول من ينشر! ✨
-    </div>`;
+    postsList.innerHTML = `<div class="empty-state">لا توجد منشورات في هذا القسم بعد. كن أول من ينشر! ✨</div>`;
     return;
   }
 
@@ -1566,6 +1946,12 @@ function buildPostElement(post, currentUid) {
   const canEdit = isOwner;
   const canDelete = isOwner || admin;
 
+  const imageHtml = post.imageUrl ? `
+    <div class="post-image" data-img="${escapeHtml(post.imageUrl)}">
+      <img src="${escapeHtml(post.imageUrl)}" alt="صورة المنشور" loading="lazy" />
+    </div>
+  ` : "";
+
   wrapper.innerHTML = `
     <div class="post-header">
       <span>👤 ${escapeHtml(post.authorEmail || "مستخدم")}</span>
@@ -1573,13 +1959,10 @@ function buildPostElement(post, currentUid) {
     </div>
     <div class="post-category-tag">${cat.icon} ${cat.name}</div>
     <div class="post-content">${escapeHtml(post.content)}</div>
+    ${imageHtml}
     <div class="post-actions">
-      <button class="btn-action btn-like" data-id="${post.id}">
-        ❤️ <span class="likes-count">0</span>
-      </button>
-      <button class="btn-action btn-comment" data-id="${post.id}">
-        💬 <span class="comments-count">0</span>
-      </button>
+      <button class="btn-action btn-like" data-id="${post.id}">❤️ <span class="likes-count">0</span></button>
+      <button class="btn-action btn-comment" data-id="${post.id}">💬 <span class="comments-count">0</span></button>
       ${canEdit ? `<button class="btn-edit" data-id="${post.id}">✏️ تعديل</button>` : ""}
       ${canDelete ? `<button class="btn-delete" data-id="${post.id}">🗑️ حذف</button>` : ""}
     </div>
@@ -1608,48 +1991,43 @@ function buildPostElement(post, currentUid) {
     addComment(post.id, input.value, input);
   });
 
+  const imgDiv = wrapper.querySelector(".post-image");
+  if (imgDiv) {
+    imgDiv.addEventListener("click", () => openImageViewer(imgDiv.dataset.img));
+  }
+
   listenToLikes(post.id, wrapper);
   listenToComments(post.id, wrapper);
 
   return wrapper;
 }
 
-// ============================================
-// 14. الإعجابات
-// ============================================
+// ============ الإعجابات ============
 function listenToLikes(postId, postElement) {
-  const likesRef = collection(db, "posts", postId, "likes");
-  onSnapshot(likesRef, (snap) => {
+  const unsub = onSnapshot(collection(db, "posts", postId, "likes"), (snap) => {
     const count = snap.size;
     const likedByMe = currentUser && snap.docs.some(d => d.id === currentUser.uid);
-
     const btn = postElement.querySelector(".btn-like");
     const countSpan = postElement.querySelector(".likes-count");
     if (btn) {
       countSpan.textContent = count;
       btn.classList.toggle("liked", likedByMe);
     }
-  }, (err) => console.error("خطأ تحميل الإعجابات:", err));
+  });
+  unsubscribeLikes[postId] = unsub;
 }
 
 async function toggleLike(postId) {
   if (!currentUser) return;
   const likeRef = doc(db, "posts", postId, "likes", currentUser.uid);
   const snap = await getDoc(likeRef);
-  if (snap.exists()) {
-    await deleteDoc(likeRef);
-  } else {
-    await setDoc(likeRef, { createdAt: serverTimestamp() });
-  }
+  if (snap.exists()) await deleteDoc(likeRef);
+  else await setDoc(likeRef, { createdAt: serverTimestamp() });
 }
 
-// ============================================
-// 15. التعليقات
-// ============================================
+// ============ التعليقات ============
 function listenToComments(postId, postElement) {
-  const commentsRef = collection(db, "posts", postId, "comments");
-  const q = query(commentsRef, orderBy("createdAt", "asc"));
-
+  const q = query(collection(db, "posts", postId, "comments"), orderBy("createdAt", "asc"));
   onSnapshot(q, (snap) => {
     const container = postElement.querySelector(".comments-list");
     const countSpan = postElement.querySelector(".comments-count");
@@ -1690,14 +2068,13 @@ function listenToComments(postId, postElement) {
 
       container.appendChild(commentEl);
     });
-  }, (err) => console.error("خطأ تحميل التعليقات:", err));
+  });
 }
 
 async function addComment(postId, text, inputEl) {
   if (!currentUser) return;
   const trimmed = text.trim();
   if (!trimmed) return;
-
   try {
     await addDoc(collection(db, "posts", postId, "comments"), {
       userId: currentUser.uid,
@@ -1711,26 +2088,41 @@ async function addComment(postId, text, inputEl) {
   }
 }
 
-// ============================================
-// 16. إضافة منشور
-// ============================================
+// ============ إضافة منشور ============
 addPostBtn.addEventListener("click", async () => {
   const content = postContent.value.trim();
-  if (!content) return alert("اكتب شيئاً أولاً!");
+  if (!content && !pendingImageFile) return alert("اكتب شيئاً أو أرفق صورة!");
   if (!currentUser) return;
 
   addPostBtn.disabled = true;
   addPostBtn.textContent = "جاري النشر...";
 
   try {
+    let imageUrl = null, imagePath = null;
+
+    if (pendingImageFile) {
+      addPostBtn.textContent = "جاري رفع الصورة...";
+      const result = await uploadImage(pendingImageFile, currentUser.uid);
+      imageUrl = result.url;
+      imagePath = result.path;
+    }
+
+    addPostBtn.textContent = "جاري النشر...";
+
     await addDoc(collection(db, "posts"), {
       content,
       category: postCategory.value,
       userId: currentUser.uid,
       authorEmail: currentUser.email,
+      imageUrl,
+      imagePath,
       createdAt: serverTimestamp()
     });
+
     postContent.value = "";
+    pendingImageFile = null;
+    postImageInput.value = "";
+    setFilePreview(null, filePreview, filePreviewImg, fileUploadLabel);
 
     if (currentCategory !== "all" && currentCategory !== postCategory.value) {
       currentCategory = postCategory.value;
@@ -1740,159 +2132,273 @@ addPostBtn.addEventListener("click", async () => {
       updateCategoryBanner();
     }
   } catch (err) {
-    alert("خطأ في النشر: " + err.message);
+    console.error("خطأ النشر:", err);
+    alert("خطأ في النشر: " + (err.code || err.message));
   } finally {
     addPostBtn.disabled = false;
     addPostBtn.textContent = "نشر";
   }
 });
 
-// ============================================
-// 17. تعديل منشور
-// ============================================
+// ============ تعديل منشور ============
 function openEditModal(postId) {
   const post = postsCache[postId];
   if (!post) return;
-  if (post.userId !== currentUser.uid) {
-    return alert("يمكنك تعديل منشوراتك فقط");
-  }
+  if (post.userId !== currentUser.uid) return alert("يمكنك تعديل منشوراتك فقط");
 
   editingPostId = postId;
+  editingExistingImage = post.imageUrl ? { url: post.imageUrl, path: post.imagePath } : null;
   editPostContent.value = post.content;
   editPostCategory.value = post.category || "quran";
+
+  if (post.imageUrl) {
+    editFilePreviewImg.src = post.imageUrl;
+    editFilePreview.classList.remove("hidden");
+    editFileUploadLabel.classList.add("has-file");
+  } else {
+    setFilePreview(null, editFilePreview, editFilePreviewImg, editFileUploadLabel);
+  }
+
+  pendingEditImageFile = null;
+  editPostImageInput.value = "";
   editModal.classList.remove("hidden");
 }
 
 saveEditBtn.addEventListener("click", async () => {
   if (!editingPostId) return;
   const newContent = editPostContent.value.trim();
-  if (!newContent) return alert("المحتوى فارغ");
+  const noImageNow = editFilePreview.classList.contains("hidden");
+
+  if (!newContent && noImageNow && !pendingEditImageFile) {
+    return alert("المحتوى فارغ");
+  }
+
+  saveEditBtn.disabled = true;
+  saveEditBtn.textContent = "جاري الحفظ...";
 
   try {
+    let imageUrl = editingExistingImage?.url || null;
+    let imagePath = editingExistingImage?.path || null;
+
+    if (noImageNow && editingExistingImage) {
+      await deleteImageByPath(editingExistingImage.path);
+      imageUrl = null;
+      imagePath = null;
+    }
+
+    if (pendingEditImageFile) {
+      if (editingExistingImage?.path) await deleteImageByPath(editingExistingImage.path);
+      const result = await uploadImage(pendingEditImageFile, currentUser.uid);
+      imageUrl = result.url;
+      imagePath = result.path;
+    }
+
     await updateDoc(doc(db, "posts", editingPostId), {
       content: newContent,
-      category: editPostCategory.value
+      category: editPostCategory.value,
+      imageUrl,
+      imagePath
     });
+
     editModal.classList.add("hidden");
     editingPostId = null;
+    pendingEditImageFile = null;
+    editingExistingImage = null;
   } catch (err) {
-    alert("خطأ في التعديل: " + err.message);
+    alert("خطأ في التعديل: " + (err.code || err.message));
+  } finally {
+    saveEditBtn.disabled = false;
+    saveEditBtn.textContent = "حفظ التعديلات";
   }
 });
 
-// ============================================
-// 18. حذف منشور
-// ============================================
+// ============ حذف منشور ============
 async function deletePost(postId) {
   const post = postsCache[postId];
   if (!post) return;
 
   const isOwner = post.userId === currentUser.uid;
   const admin = isAdmin();
+  if (!isOwner && !admin) return alert("غير مصرّح");
 
-  if (!isOwner && !admin) {
-    return alert("غير مصرّح لك بحذف هذا المنشور");
-  }
-
-  const msg = isOwner ? "هل تريد حذف منشورك؟" : "هل تريد حذف هذا المنشور كمشرف؟";
+  const msg = isOwner ? "حذف منشورك؟" : "حذف المنشور كمشرف؟";
   if (!confirm(msg)) return;
 
   try {
+    if (post.imagePath) await deleteImageByPath(post.imagePath);
     await deleteDoc(doc(db, "posts", postId));
   } catch (err) {
     alert("خطأ في الحذف: " + err.message);
   }
 }
 
-// ============================================
-// 19. لوحة التحكم
-// ============================================
-adminPanelBtn.addEventListener("click", async () => {
-  if (!isAdmin()) return;
-  adminModal.classList.remove("hidden");
-  await loadAdminPanel();
+// ============ تبويبات لوحة التحكم ============
+document.querySelectorAll(".modal-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".modal-tab").forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    const target = tab.dataset.dash;
+    document.querySelectorAll(".dash-section").forEach(s => s.classList.remove("active"));
+    document.getElementById("dash-" + target)?.classList.add("active");
+  });
 });
 
-async function loadAdminPanel() {
-  const settingsRef = doc(db, "settings", "config");
+// ============ فتح لوحة التحكم ============
+dashBtn.addEventListener("click", async () => {
+  if (!currentUser) return;
+  dashTitle.textContent = isAdmin() ? "⚙️ لوحة التحكم" : "👤 حسابي";
+  settingsTabBtn.classList.toggle("hidden", !isAdmin());
+  adminModal.classList.remove("hidden");
 
-  const usersSnap = await getDocs(collection(db, "users"));
-  const users = [];
-  usersSnap.forEach(d => users.push({ uid: d.id, ...d.data() }));
+  document.querySelectorAll(".modal-tab").forEach(t => t.classList.remove("active"));
+  document.querySelector('.modal-tab[data-dash="my"]').classList.add("active");
+  document.querySelectorAll(".dash-section").forEach(s => s.classList.remove("active"));
+  document.getElementById("dash-my").classList.add("active");
 
-  users.sort((a, b) => {
-    const aScore = a.role === "admin" ? 0 : 1;
-    const bScore = b.role === "admin" ? 0 : 1;
-    return aScore - bScore;
-  });
+  await loadDashboard();
+});
 
-  const actualAdminCount = users.filter(u => u.role === "admin").length;
+async function loadDashboard() {
+  await loadMyProfileAndStats();
+  await loadMembers();
+  if (isAdmin()) await loadSettingsTab();
+}
 
-  let settingsSnap = await getDoc(settingsRef);
-  let maxAdmins = 1;
-  let storedCount = 0;
+// ============ حسابي + إحصائياتي ============
+async function loadMyProfileAndStats() {
+  if (!currentUser || !currentUserData) return;
 
-  if (settingsSnap.exists()) {
-    maxAdmins = settingsSnap.data().maxAdmins ?? 1;
-    storedCount = settingsSnap.data().currentAdminCount ?? 0;
-  } else if (isAdmin()) {
-    await setDoc(settingsRef, { maxAdmins: 1, currentAdminCount: actualAdminCount });
-    storedCount = actualAdminCount;
-  }
+  document.getElementById("profileEmail").textContent = currentUser.email;
+  document.getElementById("profileAvatar").textContent = getInitial(currentUser.email);
 
-  if (isAdmin() && storedCount !== actualAdminCount) {
-    try {
-      await updateDoc(settingsRef, { currentAdminCount: actualAdminCount });
-      storedCount = actualAdminCount;
-    } catch (e) {
-      console.warn("تعذّر مزامنة العدّاد:", e);
+  const roleBadgeEl = document.getElementById("profileRoleBadge");
+  const admin = isAdmin();
+  roleBadgeEl.textContent = admin ? "👑 مشرف" : "مستخدم";
+  roleBadgeEl.className = "role-badge " + (admin ? "admin" : "user");
+
+  document.getElementById("profileJoinDate").textContent =
+    "تاريخ التسجيل: " + formatDate(currentUserData.createdAt);
+
+  let myPosts = 0, myLikes = 0, myComments = 0, myImages = 0;
+
+  for (const post of Object.values(postsCache)) {
+    if (post.userId === currentUser.uid) {
+      myPosts++;
+      if (post.imageUrl) myImages++;
+      try {
+        const likesSnap = await getDocs(collection(db, "posts", post.id, "likes"));
+        myLikes += likesSnap.size;
+      } catch (e) {}
     }
   }
 
-  maxAdminsInput.value = maxAdmins;
-  maxAdminsDisplay.textContent = maxAdmins;
-  currentAdminCountEl.textContent = actualAdminCount;
+  try {
+    const { collectionGroup } = await import("https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js");
+    const cg = collectionGroup(db, "comments");
+    const allComments = await getDocs(cg);
+    allComments.forEach(d => {
+      if (d.data().userId === currentUser.uid) myComments++;
+    });
+  } catch (e) {
+    console.warn("تعذّر جلب التعليقات:", e);
+  }
 
-  renderUsersList(users, actualAdminCount, maxAdmins);
+  document.getElementById("statMyPosts").textContent = myPosts;
+  document.getElementById("statMyLikes").textContent = myLikes;
+  document.getElementById("statMyComments").textContent = myComments;
+  document.getElementById("statMyImages").textContent = myImages;
 }
 
-function renderUsersList(users, adminCount, maxAdmins) {
-  usersList.innerHTML = "";
+// ============ قائمة الأعضاء ============
+async function loadMembers() {
+  try {
+    const snap = await getDocs(collection(db, "users"));
+    const users = [];
+    snap.forEach(d => users.push({ uid: d.id, ...d.data() }));
 
-  users.forEach(u => {
-    const row = document.createElement("div");
-    row.className = "user-row" + (u.role === "admin" ? " is-admin" : "");
+    users.sort((a, b) => {
+      if (a.role !== b.role) return a.role === "admin" ? -1 : 1;
+      const da = a.createdAt?.toDate?.() || 0;
+      const db_ = b.createdAt?.toDate?.() || 0;
+      return da - db_;
+    });
 
+    usersCache = users;
+    renderMembers();
+  } catch (err) {
+    console.error("خطأ تحميل الأعضاء:", err);
+  }
+}
+
+function renderMembers() {
+  membersList.innerHTML = "";
+
+  const filtered = currentMemberFilter === "all"
+    ? usersCache
+    : usersCache.filter(u => u.role === currentMemberFilter);
+
+  if (filtered.length === 0) {
+    membersList.innerHTML = `<div class="empty-state">لا يوجد أعضاء في هذه الفئة</div>`;
+    return;
+  }
+
+  const adminCount = usersCache.filter(u => u.role === "admin").length;
+  const maxAdmins = parseInt(maxAdminsDisplay.textContent, 10) || 1;
+
+  filtered.forEach(u => {
     const isMe = u.uid === currentUser.uid;
     const isUserAdmin = u.role === "admin";
 
+    const userPosts = Object.values(postsCache).filter(p => p.userId === u.uid).length;
+
     let actionBtn = "";
-    if (isUserAdmin) {
-      const canDemote = !(isMe && adminCount <= 1);
-      actionBtn = `<button class="btn-sm demote" data-uid="${u.uid}" data-action="demote" ${canDemote ? "" : "disabled"}>تخفيض</button>`;
-    } else {
-      const canPromote = adminCount < maxAdmins;
-      actionBtn = `<button class="btn-sm promote" data-uid="${u.uid}" data-action="promote" ${canPromote ? "" : "disabled"}>ترقية لمشرف</button>`;
+    if (isAdmin()) {
+      if (isUserAdmin) {
+        const canDemote = !(isMe && adminCount <= 1);
+        actionBtn = `<button class="btn-sm demote" data-uid="${u.uid}" data-action="demote" ${canDemote ? "" : "disabled"}>تخفيض</button>`;
+      } else {
+        const canPromote = adminCount < maxAdmins;
+        actionBtn = `<button class="btn-sm promote" data-uid="${u.uid}" data-action="promote" ${canPromote ? "" : "disabled"}>ترقية</button>`;
+      }
     }
 
-    row.innerHTML = `
-      <div class="user-row-email">
-        ${isUserAdmin ? "👑" : "👤"} ${escapeHtml(u.email)}
-        ${isMe ? "<small style='color:var(--text-muted)'>(أنت)</small>" : ""}
+    const card = document.createElement("div");
+    card.className = "member-card" + (isUserAdmin ? " is-admin" : "");
+
+    card.innerHTML = `
+      <div class="member-avatar">${getInitial(u.email)}</div>
+      <div class="member-info">
+        <div class="member-email">${escapeHtml(u.email)}</div>
+        <div class="member-meta">
+          <span class="member-badge ${isUserAdmin ? "admin" : "user"}">
+            ${isUserAdmin ? "👑 مشرف" : "👤 مستخدم"}
+          </span>
+          ${isMe ? `<span class="member-badge me">أنت</span>` : ""}
+          <span>📝 ${userPosts} منشور</span>
+          <span>📅 ${formatDate(u.createdAt)}</span>
+        </div>
       </div>
-      <div class="user-row-actions">
-        ${actionBtn}
-      </div>
+      ${isAdmin() && actionBtn ? `<div class="member-actions">${actionBtn}</div>` : ""}
     `;
 
-    usersList.appendChild(row);
+    membersList.appendChild(card);
   });
 
-  usersList.querySelectorAll("[data-action]").forEach(btn => {
+  membersList.querySelectorAll("[data-action]").forEach(btn => {
     btn.addEventListener("click", () => changeUserRole(btn.dataset.uid, btn.dataset.action));
   });
 }
 
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentMemberFilter = btn.dataset.filter;
+    renderMembers();
+  });
+});
+
+// ============ تغيير دور مستخدم ============
 async function changeUserRole(uid, action) {
   try {
     const userRef = doc(db, "users", uid);
@@ -1921,10 +2427,52 @@ async function changeUserRole(uid, action) {
     await updateDoc(userRef, { role: newRole });
     await updateDoc(settingsRef, { currentAdminCount: newCount });
 
-    await loadAdminPanel();
+    await loadMembers();
+    await loadSettingsTab();
   } catch (err) {
     alert("خطأ: " + err.message);
   }
+}
+
+// ============ إعدادات المشرفين ============
+async function loadSettingsTab() {
+  if (!isAdmin()) return;
+  const settingsRef = doc(db, "settings", "config");
+
+  const usersSnap = await getDocs(collection(db, "users"));
+  const allUsers = [];
+  usersSnap.forEach(d => allUsers.push({ uid: d.id, ...d.data() }));
+  const actualAdminCount = allUsers.filter(u => u.role === "admin").length;
+
+  let settingsSnap = await getDoc(settingsRef);
+  let maxAdmins = 1, storedCount = 0;
+
+  if (settingsSnap.exists()) {
+    maxAdmins = settingsSnap.data().maxAdmins ?? 1;
+    storedCount = settingsSnap.data().currentAdminCount ?? 0;
+  } else {
+    await setDoc(settingsRef, { maxAdmins: 1, currentAdminCount: actualAdminCount });
+    storedCount = actualAdminCount;
+  }
+
+  if (storedCount !== actualAdminCount) {
+    try {
+      await updateDoc(settingsRef, { currentAdminCount: actualAdminCount });
+    } catch (e) {}
+  }
+
+  maxAdminsInput.value = maxAdmins;
+  maxAdminsDisplay.textContent = maxAdmins;
+  currentAdminCountEl.textContent = actualAdminCount;
+
+  document.getElementById("statTotalUsers").textContent = allUsers.length;
+  document.getElementById("statTotalPosts").textContent = Object.keys(postsCache).length;
+
+  let totalLikes = 0;
+  document.querySelectorAll(".likes-count").forEach(el => {
+    totalLikes += parseInt(el.textContent, 10) || 0;
+  });
+  document.getElementById("statTotalLikes").textContent = totalLikes;
 }
 
 saveMaxAdminsBtn.addEventListener("click", async () => {
@@ -1934,7 +2482,7 @@ saveMaxAdminsBtn.addEventListener("click", async () => {
   const value = parseInt(maxAdminsInput.value, 10);
   if (isNaN(value) || value < 1) {
     adminSettingsMsg.style.color = "#e53935";
-    adminSettingsMsg.textContent = "يجب أن تكون القيمة 1 على الأقل";
+    adminSettingsMsg.textContent = "القيمة يجب أن تكون 1 على الأقل";
     return;
   }
 
@@ -1949,7 +2497,8 @@ saveMaxAdminsBtn.addEventListener("click", async () => {
     await setDoc(doc(db, "settings", "config"), { maxAdmins: value }, { merge: true });
     adminSettingsMsg.style.color = "var(--green)";
     adminSettingsMsg.textContent = "✓ تم الحفظ بنجاح";
-    await loadAdminPanel();
+    await loadSettingsTab();
+    await loadSignupAvailability();
     setTimeout(() => { adminSettingsMsg.textContent = ""; }, 3000);
   } catch (err) {
     adminSettingsMsg.style.color = "#e53935";
@@ -1957,9 +2506,7 @@ saveMaxAdminsBtn.addEventListener("click", async () => {
   }
 });
 
-// ============================================
-// 20. القائمة الجانبية
-// ============================================
+// ============ القائمة الجانبية ============
 menuToggle.addEventListener("click", () => {
   sidebar.classList.toggle("open");
   sidebarOverlay.classList.toggle("active");
@@ -1977,7 +2524,6 @@ navItems.forEach(item => {
     currentCategory = item.dataset.category;
     updateCategoryBanner();
     renderFilteredPosts();
-
     if (window.innerWidth <= 900) {
       sidebar.classList.remove("open");
       sidebarOverlay.classList.remove("active");
@@ -1992,9 +2538,7 @@ function updateCategoryBanner() {
   currentCategoryName.textContent = cat.name;
 }
 
-// ============================================
-// 21. الوضع الليلي
-// ============================================
+// ============ الوضع الليلي ============
 const savedTheme = localStorage.getItem("theme") || "light";
 document.documentElement.setAttribute("data-theme", savedTheme);
 themeToggle.textContent = savedTheme === "dark" ? "☀️" : "🌙";
@@ -2007,11 +2551,9 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", next);
 });
 
-// ============================================
-// 22. تشغيل أولي
-// ============================================
+// ============ تشغيل أولي ============
 loadSignupAvailability();
-console.log("✅ التطبيق جاهز بالكامل");
+console.log("✅ التطبيق جاهز - المشروع: minhajalnubwwa");
 </script>
 
 </body>
